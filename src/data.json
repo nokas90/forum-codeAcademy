@@ -5,7 +5,7 @@
           "creatorId": "usr1",
           "title": "First Question",
           "question": "What is JSON?",
-          "numberOfLikes": "5",
+          "numberOfLikes": 5,
           "isEdited": false
       }
   ],
@@ -15,7 +15,7 @@
           "questionId": "1",
           "creatorId": "usr2",
           "answer": "JSON stands for JavaScript Object Notation",
-          "numberOfLikes": "3",
+          "numberOfLikes": 3,
           "isEdited": false
       }
   ],
