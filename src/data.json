@@ -1,0 +1,40 @@
+{
+  "Questions": [
+      {
+          "id": "1",
+          "creatorId": "usr1",
+          "title": "First Question",
+          "question": "What is JSON?",
+          "numberOfLikes": "5",
+          "isEdited": "false"
+      }
+  ],
+  "Answers": [
+      {
+          "id": "1",
+          "questionId": "1",
+          "creatorId": "usr2",
+          "answer": "JSON stands for JavaScript Object Notation",
+          "numberOfLikes": "3",
+          "isEdited": "false"
+      }
+  ],
+  "Users": [
+      {
+          "id": "usr1",
+          "name": "Alice",
+          "email": "alice@email.com",
+          "passwordNormal": "alicepassword",
+          "password": "alicepassword",
+          "image": "https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819_640.png"
+      },
+      {
+          "id": "usr2",
+          "name": "Bob",
+          "email": "bob@email.com",
+          "passwordNormal": "bobpassword",
+          "password": "bobpassword",
+          "image": "https://cdn.pixabay.com/photo/2016/04/26/07/57/woman-1353825_640.png"
+      }
+  ]
+}
