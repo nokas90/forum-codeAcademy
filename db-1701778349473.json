@@ -1,0 +1,176 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "creatorId": "usr1",
+      "title": "First Question",
+      "question": "What is JSON?",
+      "numberOfLikes": 5,
+      "isEdited": false,
+      "createdDate": "05/3/2023, 12:11:55 AM",
+      "answers": [
+        {
+          "id": "11",
+          "questionId": "1",
+          "creatorId": "usr2",
+          "answer": "bla bla bla",
+          "numberOfLikes": 3,
+          "isEdited": false,
+          "createdDate": "6/5/2023, 1:11:55 PM"
+        },
+        {
+          "id": "15",
+          "questionId": "1",
+          "creatorId": "usr2",
+          "answer": "blu blu blu",
+          "numberOfLikes": 3,
+          "isEdited": true,
+          "createdDate": "12/1/2023, 6:13:55 AM"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "creatorId": "usr1",
+      "title": "Second Question",
+      "question": "What is JSON2?",
+      "numberOfLikes": 5,
+      "isEdited": false,
+      "createdDate": "11/2/2023, 6:34:50 AM",
+      "answers": [
+        {
+          "id": "12",
+          "questionId": "2",
+          "creatorId": "usr1",
+          "answer": "JSON stands for JavaScript Object Notation222222",
+          "numberOfLikes": 3,
+          "isEdited": false,
+          "createdDate": "2/5/2023, 8:14:55 AM"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "creatorId": "usr1",
+      "title": "Third Question",
+      "question": "What is JSON3?",
+      "numberOfLikes": 2,
+      "isEdited": true,
+      "createdDate": "4/8/2023, 9:11:55 PM",
+      "answers": [
+        {
+          "id": "13",
+          "questionId": "3",
+          "creatorId": "usr2",
+          "answer": "JSON stands for JavaScript Object Notation33333",
+          "numberOfLikes": 3,
+          "isEdited": true,
+          "createdDate": "4/1/2023, 7:35:55 pM"
+        },
+        {
+          "id": "14",
+          "questionId": "3",
+          "creatorId": "usr2",
+          "answer": "JSON stands for JavaScript Object Notation44444",
+          "numberOfLikes": 3,
+          "isEdited": false,
+          "createdDate": "8/1/2023, 7:11:55 AM"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "creatorId": "usr2",
+      "title": "Fourt Question",
+      "question": "What is JSON4?",
+      "numberOfLikes": 1,
+      "isEdited": false,
+      "createdDate": "12/5/2023, 10:11:55 AM",
+      "answers": []
+    },
+    {
+      "id": "5",
+      "creatorId": "usr2",
+      "title": "Fifth Question",
+      "question": "What is JSON5?",
+      "numberOfLikes": 533,
+      "isEdited": false,
+      "createdDate": "12/5/2023, 12:11:55 AM",
+      "answers": []
+    },
+    {
+      "id": "c4bc3ae0-ab08-41ab-a45d-90fbc485a11c",
+      "createdDate": "12/5/2023, 8:08:20 AM",
+      "title": "testtest",
+      "question": "testtesttest",
+      "isEdited": false,
+      "numberOfLikes": 0,
+      "answers": []
+    }
+  ],
+  "answers": [
+    {
+      "id": "11",
+      "questionId": "1",
+      "creatorId": "usr2",
+      "answer": "JSON stands for JavaScript Object Notation",
+      "numberOfLikes": 3,
+      "isEdited": false,
+      "createdDate": "6/5/2023, 1:11:55 PM"
+    },
+    {
+      "id": "12",
+      "questionId": "2",
+      "creatorId": "usr1",
+      "answer": "JSON stands for JavaScript Object Notation222222",
+      "numberOfLikes": 3,
+      "isEdited": false,
+      "createdDate": "2/5/2023, 8:14:55 AM"
+    },
+    {
+      "id": "13",
+      "questionId": "3",
+      "creatorId": "usr2",
+      "answer": "JSON stands for JavaScript Object Notation33333",
+      "numberOfLikes": 3,
+      "isEdited": true,
+      "createdDate": "4/1/2023, 7:35:55 pM"
+    },
+    {
+      "id": "14",
+      "questionId": "3",
+      "creatorId": "usr2",
+      "answer": "JSON stands for JavaScript Object Notation44444",
+      "numberOfLikes": 3,
+      "isEdited": false,
+      "createdDate": "8/1/2023, 7:11:55 AM"
+    },
+    {
+      "id": "15",
+      "questionId": "1",
+      "creatorId": "usr2",
+      "answer": "JSON stands for JavaScript Object Notation55555",
+      "numberOfLikes": 3,
+      "isEdited": true,
+      "createdDate": "12/1/2023, 6:13:55 AM"
+    }
+  ],
+  "users": [
+    {
+      "id": "usr1",
+      "userName": "Alice",
+      "email": "alice@email.com",
+      "passwordNormal": "alicepassword",
+      "password": "alicepassword",
+      "profilePic": "https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819_640.png"
+    },
+    {
+      "id": "usr2",
+      "userName": "Bob",
+      "email": "bob@email.com",
+      "passwordNormal": "bobpassword",
+      "password": "bobpassword",
+      "profilePic": "https://cdn.pixabay.com/photo/2016/04/26/07/57/woman-1353825_640.png"
+    }
+  ]
+}
