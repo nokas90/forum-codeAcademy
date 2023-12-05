@@ -1,6 +1,6 @@
-@import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
+@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
 
-body,
-html {
+body {
   font-family: Roboto, Helvetica, sans-serif;
+  background-color: #F3EEEA;
 }
