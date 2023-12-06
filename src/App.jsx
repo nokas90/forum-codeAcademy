@@ -5,9 +5,10 @@ import { Routes, Route } from "react-router-dom";
 import Register from "./components/pages/Register";
 import Main from "./components/pages/Main";
 import OneQuestion from "./components/pages/OneQuestion";
-import AllQuestions from "./components/pages/AllQuestions.";
+import AllQuestions from "./components/pages/AllQuestions";
 import AddQuestion from "./components/pages/AddQuestion";
 import AddAnswer from "./components/pages/AddAnswer";
+import EditQuestion from "./components/pages/EditQuestion";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
             <Route path="addAnswer" element={<AddAnswer />} />
           </Route>
           <Route path="newQuestion" element={<AddQuestion />} />
+          <Route path="edit/:id" element={<EditQuestion />}/>
+
         </Route>
         <Route path="/user">
           <Route path="login" element={<Login />} />
