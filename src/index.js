@@ -6,7 +6,6 @@ import { UsersProvider } from "./contexts/UserContext";
 import ForumQuestionsContext, {
   ForumQuestionsProvider,
 } from "./contexts/ForumQuestionsContext";
-import { ForumAnswersProvider } from "./contexts/ForumAnswersContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
