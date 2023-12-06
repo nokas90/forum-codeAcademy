@@ -4,3 +4,13 @@ body {
   font-family: Roboto, Helvetica, sans-serif;
   background-color: #F3EEEA;
 }
+
+.title_filters{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
