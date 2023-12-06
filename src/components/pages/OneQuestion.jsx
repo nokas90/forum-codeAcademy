@@ -6,25 +6,36 @@ import UsersContext from "../../contexts/UserContext";
 import AddAnswer from "./AddAnswer";
 
 const QuestionContainer = styled.div`
+  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 10px;
   width: 80%;
   margin: 0 auto;
   padding: 10px;
   border: solid black 1px;
+  >p h3{
+    margin-top:0;
+  }
 
   .questionSummary {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: start;
+    justify-content: space-around;
+    align-items: center;
     gap: 3px;
 
     > div {
       display: flex;
       gap: 5px;
     }
+  }
+  .questionsDate {
+    border: yellowgreen 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-self: space-around;
   }
 `;
 const AnswersContainer = styled.div`
@@ -78,7 +89,9 @@ const OneQuestion = () => {
       <>
         {loggedInUser.id === question.creatorId && (
           <>
-            {/* <button onClick={() => navigate(`/games/edit/${id}`)}>Edit</button> */}
+            <button onClick={() => navigate(`/questions/edit/${id}`)}>
+              Edit
+            </button>
             <button
               onClick={() => {
                 setQuestions({ type: QuestionsActionTypes.remove, id: id });
@@ -99,10 +112,13 @@ const OneQuestion = () => {
           <div className="questionContent">
             <h3>{question.title}</h3>
             <p>{question.question}</p>
-            <p>Created: {question.createdDate}</p>
+            <div className="questionsDate">
+              <span>Created: {question.createdDate}</span>
+              <span>Edited: {question.editedDate}</span>
+            </div>
           </div>
           <Link to={`/questions/${id}/addAnswer`}>
-            <button>Add Answer</button>
+            <button style={{position:'absolute', bottom:'5px', left:'2px', fontSize:'0.7rem'}}>Answer</button>
           </Link>
         </QuestionContainer>
         <AnswersContainer>
@@ -114,7 +130,8 @@ const OneQuestion = () => {
               </div>
               <div className="answerContent">
                 <p>{answer.answer}</p>
-                <p>Created: {answer.createdDate}</p>
+                <span>Created: {answer.createdDate}</span>
+                {/* <span>Edited: {answer.editedDate}</span> */}
               </div>
             </div>
           ))}
