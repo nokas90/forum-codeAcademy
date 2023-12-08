@@ -10,6 +10,7 @@ const StyledHeader = styled.header`
   padding: 5px 50px;
   align-items: center;
   background-color: #b0a695;
+  margin-bottom: 20px;
 
   .logo {
     font-size: 1.3rem;
