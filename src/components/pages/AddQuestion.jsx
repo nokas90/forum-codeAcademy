@@ -64,7 +64,6 @@ const AddQuestion = () => {
         ...values,
         numberOfLikes: 0,
         isEdited: false,
-        answers:[]
       };
       // console.log(finalValues);
       setQuestions({
@@ -85,7 +84,9 @@ const AddQuestion = () => {
           formik={formik}
         />
         <FormikInput 
-          type="text"
+          type="textarea"
+          rows={5}
+          columns={15}
           name="question"
           formik={formik}
         />
