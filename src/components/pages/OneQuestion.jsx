@@ -4,18 +4,21 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import ForumQuestionsContext from "../../contexts/ForumQuestionsContext";
 import UsersContext from "../../contexts/UserContext";
 import AddAnswer from "./AddAnswer";
+import VoteComponent from "../UI/VoteComponent";
+import ForumAnswersContext from "../../contexts/ForumAnswersContext";
+import AnswerCard from "../UI/AnswerCard";
 
 const QuestionContainer = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 10px;
   width: 80%;
   margin: 0 auto;
   padding: 10px;
   border: solid black 1px;
-  >p h3{
-    margin-top:0;
+  > p h3 {
+    margin-top: 0;
   }
 
   .questionSummary {
@@ -34,76 +37,74 @@ const QuestionContainer = styled.div`
     border: yellowgreen 1px solid;
     display: flex;
     flex-direction: column;
-    align-self: flex-end;
-    justify-self: space-around;
+    gap: 5px;
+    font-size: 0.8rem;
   }
 `;
-const AnswersContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  width: 80%;
-  margin: 0 auto;
-  padding: 10px;
-  border: solid red 1px;
 
-  .oneAnswer {
-    display: flex;
-    border: 2px blue solid;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    gap: 3px;
-
-    > div {
-      display: flex;
-      gap: 5px;
-    }
-  }
+const AbsoluteButton = styled.button`
+  font-size: 0.7rem;
+  position: absolute;
 `;
 
 const OneQuestion = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [question, setQuestion] = useState();
-  const { setQuestions, QuestionsActionTypes } = useContext(
+  const [localAnswers, setLocalAnswers] = useState([]);
+  const { questions, setQuestions, QuestionsActionTypes } = useContext(
     ForumQuestionsContext
   );
+  const { answers, setAnswers, AnswersActionTypes } =
+    useContext(ForumAnswersContext);
   const { loggedInUser } = useContext(UsersContext);
+  // console.log(answers);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/questions/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data)
-        if (!data.title) {
-          navigate("/");
-        }
-        setQuestion(data);
-      });
-  }, []);
+    if (id) {
+      // Fetch question
+      fetch(`http://localhost:8080/questions/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log("Fetched Question Data:", data);
+          if (!data.title) {
+            navigate("/");
+          }
+          setQuestion(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching question:", error);
+        });
+    }
+  }, [id, setQuestions]);
 
   return (
-    question && (
+    question &&(
       <>
-        {loggedInUser.id === question.creatorId && (
-          <>
-            <button onClick={() => navigate(`/questions/edit/${id}`)}>
-              Edit
-            </button>
-            <button
-              onClick={() => {
-                setQuestions({ type: QuestionsActionTypes.remove, id: id });
-                navigate("/questions/allQuestions");
-              }}
-            >
-              Delete
-            </button>
-          </>
-        )}
         <QuestionContainer>
+          {loggedInUser.id === question.creatorId && (
+            <>
+              <AbsoluteButton
+                style={{ right: "3px", top: "3px", color: "blue" }}
+                onClick={() => navigate(`/questions/${id}/edit`)}
+              >
+                Edit
+              </AbsoluteButton>
+              <AbsoluteButton
+                style={{ right: "3px", top: "30px", color: "red" }}
+                onClick={() => {
+                  if (window.confirm("Delete?")) {
+                    setQuestions({ type: QuestionsActionTypes.remove, id: id });
+                    navigate("/questions/allQuestions");
+                  }
+                }}
+              >
+                Delete
+              </AbsoluteButton>
+            </>
+          )}
           <div className="questionSummary">
+            <VoteComponent />
             <div>
               <span>{question.numberOfLikes}</span>
               <span>votes</span>
@@ -114,28 +115,32 @@ const OneQuestion = () => {
             <p>{question.question}</p>
             <div className="questionsDate">
               <span>Created: {question.createdDate}</span>
-              <span>Edited: {question.editedDate}</span>
+              {question.isEdited && <span>Edited: {question.editedDate}</span>}
             </div>
           </div>
-          <Link to={`/questions/${id}/addAnswer`}>
-            <button style={{position:'absolute', bottom:'5px', left:'2px', fontSize:'0.7rem'}}>Answer</button>
-          </Link>
-        </QuestionContainer>
-        <AnswersContainer>
-          {question.answers.map((answer) => (
-            <div key={answer.id} className="oneAnswer">
-              <div>
-                <span>{answer.numberOfLikes}</span>
-                <span>votes</span>
-              </div>
-              <div className="answerContent">
-                <p>{answer.answer}</p>
-                <span>Created: {answer.createdDate}</span>
-                {/* <span>Edited: {answer.editedDate}</span> */}
-              </div>
+          {loggedInUser && (
+            <div>
+              <Link to={`/questions/${id}/addAnswer`}>
+                <AbsoluteButton style={{ bottom: "5px", right: "5px" }}>
+                  Answer
+                </AbsoluteButton>
+              </Link>
             </div>
-          ))}
-        </AnswersContainer>
+          )}
+        </QuestionContainer>
+        <div>
+          {answers &&
+            answers
+              .filter((answer) => {
+                const isMatch = answer.questionId === question.id;
+                // console.log("Answer:", answer, "Is Match:", isMatch);
+                return isMatch;
+              })
+              .map((answer) => {
+                // console.log("Rendering Answer:", answer);
+                return <AnswerCard key={answer.id} data={answer} />;
+              })}
+        </div>
       </>
     )
   );
