@@ -7,10 +7,8 @@ const QuestionsActionTypes = {
   add: "add one new question",
   remove: "remove one specific question",
   edit: "edit one specific question",
-  addAnswer: "add answer to a specific question",
   filterAnsweredQuestion: "filter answered question",
   filterNotAnsweredQuestion: "filter NOT answered question",
-
 };
 
 const reducer = (state, action) => {
@@ -46,23 +44,13 @@ const reducer = (state, action) => {
           return el;
         }
       });
-    case QuestionsActionTypes.addAnswer:
-      // Assuming your API allows adding answers to a specific question
-      fetch(
-        `http://localhost:8080/questions/${action.data.questionId}/answers`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(action.data.answerData),
-        }
-      );
-      return state;
+
       case QuestionsActionTypes.filterAnsweredQuestion:
-        // Filter questions with answers
-        const questionsWithAnswers = state.filter((question) => question.answers.length > 0);
-        return questionsWithAnswers;
+      // Filter questions with answers
+      const questionsWithAnswers = state.filter(
+        (question) => question.answers.length > 0
+      );
+      return questionsWithAnswers;
 
     default:
       console.log("error: action type not found", action.type);
