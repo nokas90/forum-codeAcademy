@@ -3,51 +3,22 @@
     {
       "id": "1",
       "creatorId": "usr1",
-      "title": "First Question",
+      "title": "First Question111",
       "question": "What is JSON?",
       "numberOfLikes": 5,
-      "isEdited": false,
+      "isEdited": true,
       "createdDate": "05/3/2023, 12:11:55 AM",
-      "answers": [
-        {
-          "id": "11",
-          "questionId": "1",
-          "creatorId": "usr2",
-          "answer": "bla bla bla",
-          "numberOfLikes": 3,
-          "isEdited": false,
-          "createdDate": "6/5/2023, 1:11:55 PM"
-        },
-        {
-          "id": "15",
-          "questionId": "1",
-          "creatorId": "usr2",
-          "answer": "blu blu blu",
-          "numberOfLikes": 3,
-          "isEdited": true,
-          "createdDate": "12/1/2023, 6:13:55 AM"
-        }
-      ]
+      "editedDate": "12/8/2023, 7:36:19 PM"
     },
     {
       "id": "2",
       "creatorId": "usr1",
-      "title": "Second Question",
-      "question": "What is JSON2?",
+      "title": "Second Question Second2aasa22",
+      "question": "What is JSON2???22222",
       "numberOfLikes": 5,
-      "isEdited": false,
+      "isEdited": true,
       "createdDate": "11/2/2023, 6:34:50 AM",
-      "answers": [
-        {
-          "id": "12",
-          "questionId": "2",
-          "creatorId": "usr1",
-          "answer": "JSON stands for JavaScript Object Notation222222",
-          "numberOfLikes": 3,
-          "isEdited": false,
-          "createdDate": "2/5/2023, 8:14:55 AM"
-        }
-      ]
+      "editedDate": "12/8/2023, 4:51:56 PM"
     },
     {
       "id": "3",
@@ -56,27 +27,7 @@
       "question": "What is JSON3?",
       "numberOfLikes": 2,
       "isEdited": true,
-      "createdDate": "4/8/2023, 9:11:55 PM",
-      "answers": [
-        {
-          "id": "13",
-          "questionId": "3",
-          "creatorId": "usr2",
-          "answer": "JSON stands for JavaScript Object Notation33333",
-          "numberOfLikes": 3,
-          "isEdited": true,
-          "createdDate": "4/1/2023, 7:35:55 pM"
-        },
-        {
-          "id": "14",
-          "questionId": "3",
-          "creatorId": "usr2",
-          "answer": "JSON stands for JavaScript Object Notation44444",
-          "numberOfLikes": 3,
-          "isEdited": false,
-          "createdDate": "8/1/2023, 7:11:55 AM"
-        }
-      ]
+      "createdDate": "4/8/2023, 9:11:55 PM"
     },
     {
       "id": "4",
@@ -85,8 +36,7 @@
       "question": "What is JSON4?",
       "numberOfLikes": 1,
       "isEdited": false,
-      "createdDate": "12/5/2023, 10:11:55 AM",
-      "answers": []
+      "createdDate": "12/5/2023, 10:11:55 AM"
     },
     {
       "id": "5",
@@ -95,8 +45,7 @@
       "question": "What is JSON5?",
       "numberOfLikes": 533,
       "isEdited": false,
-      "createdDate": "12/5/2023, 12:11:55 AM",
-      "answers": []
+      "createdDate": "12/5/2023, 12:11:55 AM"
     },
     {
       "id": "c4bc3ae0-ab08-41ab-a45d-90fbc485a11c",
@@ -104,8 +53,7 @@
       "title": "testtest",
       "question": "testtesttest",
       "isEdited": false,
-      "numberOfLikes": 0,
-      "answers": []
+      "numberOfLikes": 0
     }
   ],
   "answers": [
@@ -153,6 +101,36 @@
       "numberOfLikes": 3,
       "isEdited": true,
       "createdDate": "12/1/2023, 6:13:55 AM"
+    },
+    {
+      "id": "30f1281e-73fb-43ce-b2af-bb0747d16f82",
+      "questionId": "4",
+      "creatorId": "usr1",
+      "creatorName": "Alice",
+      "answer": "sfdsdfsdf",
+      "numberOfLikes": 0,
+      "isEdited": false,
+      "createdDate": "12/8/2023, 4:25:49 PM"
+    },
+    {
+      "id": "b109da88-55e6-4a1b-8f68-685355ff2157",
+      "questionId": "1",
+      "creatorId": "usr1",
+      "creatorName": "Alice",
+      "answer": "jajajajaj",
+      "numberOfLikes": 0,
+      "isEdited": false,
+      "createdDate": "12/8/2023, 4:59:58 PM"
+    },
+    {
+      "id": "e6fb1a73-049c-4f7f-b357-7927072bd0d6",
+      "questionId": "4",
+      "creatorId": "usr1",
+      "creatorName": "Alice",
+      "answer": "asdasdwrq23r23r23r23r",
+      "numberOfLikes": 0,
+      "isEdited": false,
+      "createdDate": "12/8/2023, 8:14:15 PM"
     }
   ],
   "users": [
@@ -171,14 +149,6 @@
       "passwordNormal": "bobpassword",
       "password": "bobpassword",
       "profilePic": "https://cdn.pixabay.com/photo/2016/04/26/07/57/woman-1353825_640.png"
-    },
-    {
-      "id": "1cb9440e-eb99-4fdd-829e-ab531064b3a5",
-      "userName": "labaslabaslabas",
-      "email": "labas@labas.lt",
-      "passwordNormal": "Qwerty1!",
-      "password": "$2a$08$OVjA2ptlcrQxXXGV3NxHH.qnLWU5M0luwoTs4C.RMFvR6VBtxJIdm",
-      "profilePic": "https://cdn.pixabay.com/photo/2016/03/31/20/31/amazed-1295833_640.png"
     }
   ]
 }
