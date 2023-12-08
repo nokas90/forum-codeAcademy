@@ -5,7 +5,13 @@ import UsersContext from "../../contexts/UserContext";
 import { styled } from "styled-components";
 import QuestionCard from "../UI/QuestionCard";
 
-const StyledQuestions = styled.main`
+const TopWrapper = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+`
+
+const StyledQuestions = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -75,7 +81,7 @@ const AllQuestions = () => {
   return (
     <>
       <h1 style={{ textAlign: "center" }}>All Questions</h1>
-      <div>
+      <TopWrapper>
         {loggedInUser && (
           <Link to="/questions/newQuestion">
             <button>Ask Question</button>
@@ -108,7 +114,7 @@ const AllQuestions = () => {
             Most Voted
           </label>
         </FiltersContainer>
-      </div>
+      </TopWrapper>
 
       <StyledQuestions>
         {sortedQuestions.map((question) => (
