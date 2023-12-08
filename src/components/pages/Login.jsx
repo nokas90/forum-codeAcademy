@@ -59,7 +59,7 @@ const Login = () => {
       const loggedInUser = users.find(user => user.email === values.email && user.password === values.password);
       // const loggedInUser = users.find(user => user.email === values.email && bcrypt.compareSync(values.password, user.password));
 
-      console.log(loggedInUser);
+      // console.log(loggedInUser);
 
       if(loggedInUser === undefined) {
         setFailedToLogin(true);
@@ -67,7 +67,7 @@ const Login = () => {
       } else {
         setLoggedInUser(loggedInUser);
 
-        console.log('logged in')
+        // console.log('logged in')
         navigate('/questions/allQuestions');
       }
     }
