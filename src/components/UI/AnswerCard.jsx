@@ -47,18 +47,6 @@ const AnswerCard = ({ data }) => {
   const { loggedInUser } = useContext(UsersContext);
   const [editClick, setEditClick] = useState(false);
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:8080/answers/${data.id}`)
-  //     .then((res) => res.json())
-  //     .then((answersData) => {
-  //       console.log("Fetched Answers Data:", answersData);
-  //       setLocalAnswers(answersData);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching answers:", error);
-  //     });
-  // }, []);
-
   return (
     data && (
       <>
@@ -96,7 +84,7 @@ const AnswerCard = ({ data }) => {
             <div className="answerContent">
               <p>{data.answer}</p>
               <span>Created: {data.createdDate}</span>
-              {/* <span>Edited: {answer.editedDate}</span> */}
+              {data.isEdited && <span>Edited: {data.editedDate}</span>}
             </div>
           </div>
         </AnswersContainer>
