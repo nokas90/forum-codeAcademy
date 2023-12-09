@@ -41,17 +41,17 @@ const EditQuestion = () => {
 
   useEffect(() => {
     fetch(`http://localhost:8080/questions/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        if(!data.title){
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (!data.title) {
           // navigate('/');
         }
         setFormValues({
           ...data,
         });
-      })
-  }, []);
+      });
+  }, [formValues.title]);
 
   const validationSchema = Yup.object({
     title: Yup.string()
@@ -65,61 +65,38 @@ const EditQuestion = () => {
       .trim(),
   });
 
-  // const formik = Formik({
-  //   initialValues: formValues,
-  //   validationSchema: validationSchema,
-  //   onSubmit: (values) => {
-  //     // console.log(values);
-  //     const finalValues = {
-  //       ...values,
-  //       editedDate: new Date().toLocaleString(),
-  //       isEdited: true,
-  //     };
-  //     // console.log(finalValues);
-  //     setQuestions({
-  //       type: QuestionsActionTypes.edit,
-  //       id: id,
-  //       data: finalValues,
-  //     });
-  //     console.log(finalValues);
-  //     // navigate('/questions/allQuestions');
-  //   },
-  // });
-
   return (
     <StyledEditFormPage>
-      <h1>Edit Game</h1>
-      {
-        formValues.title && <Formik
-          initialValues = {formValues}
-          validationSchema = {validationSchema}
-          onSubmit = {(values) => {
+      <h1>Edit Question</h1>
+      {formValues.title && (
+        <Formik
+          initialValues={formValues}
+          validationSchema={validationSchema}
+          onSubmit={(values) => {
             // console.log(values);
             const finalValues = {
               ...values,
               isEdited: true,
               editedDate: new Date().toLocaleString(),
-
-              
             };
             console.log(finalValues);
             setQuestions({
               type: QuestionsActionTypes.edit,
               id: id,
-              data: finalValues
+              data: finalValues,
             });
             navigate(`/questions/${id}`);
           }}
         >
           {(props) => (
             <form onSubmit={props.handleSubmit}>
-            <FormikInput type="text" name="title" formik={props} />
-            <FormikInput type="text" name="question" formik={props} />
-            <button type="Submit">Edit Question</button>
-          </form>
+              <FormikInput type="text" name="title" formik={props} />
+              <FormikInput type="text" name="question" formik={props} />
+              <button type="Submit">Edit Question</button>
+            </form>
           )}
         </Formik>
-      }
+      )}
     </StyledEditFormPage>
   );
 };
