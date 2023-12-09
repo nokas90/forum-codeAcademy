@@ -31,57 +31,27 @@ const StyledEditFormPage = styled.main`
 const EditAnswer = ({ data, setEditClick }) => {
   const { answers, setAnswers, AnswersActionTypes } =
     useContext(ForumAnswersContext);
-  const navigate = useNavigate();
-  const { id } = useParams();
   const [formValues, setFormValues] = useState({
     answer: "",
   });
 
   useEffect(() => {
     fetch(`http://localhost:8080/answers/${data.id}`)
-      .then(res => res.json())
-      .then(newData => {
-        console.log("Fetched Data:", newData);
-  
+      .then((res) => res.json())
+      .then((newData) => {
         if (!newData.title) {
-          // navigate('/');
         }
-  
         setFormValues({
-          ...newData
+          ...newData,
         });
       });
-  }, [formValues.answer]);
-  // console.log("Cia yra formValues",formValues)
+  }, []);
   const validationSchema = Yup.object({
     answer: Yup.string()
-      .min(5, "Minimum length 5 symbols")
-      .max(50, "Maximum length 50 symbols")
+      .max(250, "Reached maximum symbols 250")
       .required("This field must be filled")
       .trim(),
   });
-
-  // const formik = Formik({
-  //   initialValues: formValues,
-  //   validationSchema: validationSchema,
-  //   onSubmit: (values) => {
-  //     // console.log(values);
-  //     const finalValues = {
-  //       ...values,
-  //       editedDate: new Date().toLocaleString(),
-  //       isEdited: true,
-  //     };
-  //     // console.log(finalValues);
-  //     setAnswers({
-  //       type: AnswersActionTypes.edit,
-  //       id: id,
-  //       data: finalValues,
-  //     });
-  //     console.log(finalValues);
-  //     // navigate('/questions/allQuestions');
-  //   },
-  // });
-
 
   return (
     <StyledEditFormPage>
@@ -90,30 +60,32 @@ const EditAnswer = ({ data, setEditClick }) => {
         <Formik
           initialValues={formValues}
           validationSchema={validationSchema}
-          onSubmit={async (values) => {
+          onSubmit={(values) => {
             const finalValues = {
               ...values,
               isEdited: true,
-              editedDate: new Date().toLocaleString()
+              editedDate: new Date().toLocaleString(),
             };
-          
-            console.log("Before setAnswers:", finalValues);
-          
             setAnswers({
               type: AnswersActionTypes.edit,
-              id: id,
-              data: finalValues
+              id: data.id,
+              data: finalValues,
             });
-          
-            console.log("After setAnswers:", answers);
-          
             setEditClick(false);
           }}
         >
           {(props) => (
             <form onSubmit={props.handleSubmit}>
-              <FormikInput type="text" name="answer" formik={props} />
-
+              <FormikInput
+                name="answer"
+                value={props.values.answer}
+                id="answer"
+                type="textarea"
+                rows={5}
+                columns={10}
+                onBlur={props.handleBlur}
+                formik={props}
+              />
               <button type="Submit">Edit Answer</button>
             </form>
           )}
