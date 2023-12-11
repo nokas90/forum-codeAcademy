@@ -3,7 +3,6 @@ import * as Yup from "yup";
 import styled from "styled-components";
 import { useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import UsersContext from "../../contexts/UserContext";
 import ForumQuestionsContext from "../../contexts/ForumQuestionsContext";
 import FormikInput from "../UI/FormitInput";
 
@@ -62,7 +61,7 @@ const EditQuestion = () => {
           ...data,
         });
       });
-  }, [formValues, navigate]);
+  }, []);
 
   const validationSchema = Yup.object({
     title: Yup.string()

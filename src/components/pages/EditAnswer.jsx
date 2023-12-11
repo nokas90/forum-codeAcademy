@@ -1,9 +1,7 @@
-import { Formik, Form } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
 import { useContext, useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import UsersContext from "../../contexts/UserContext";
 import ForumAnswersContext from "../../contexts/ForumAnswersContext";
 import FormikInput from "../UI/FormitInput";
 
@@ -37,7 +35,7 @@ const StyledHeader = styled.h1`
 `;
 
 const EditAnswer = ({ data, setEditClick }) => {
-  const { answers, setAnswers, AnswersActionTypes } =
+  const { setAnswers, AnswersActionTypes } =
     useContext(ForumAnswersContext);
   const [formValues, setFormValues] = useState({
     answer: "",
@@ -53,7 +51,7 @@ const EditAnswer = ({ data, setEditClick }) => {
           ...newData,
         });
       });
-  }, []);
+  }, [data.id]);
   const validationSchema = Yup.object({
     answer: Yup.string()
       .max(250, "Reached maximum symbols 250")
