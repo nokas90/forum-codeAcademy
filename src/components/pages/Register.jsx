@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import UsersContext from "../../contexts/UserContext";
 import FormikInput from "../../components/UI/FormitInput";
+import Typewriter from "../UI/TypeWriter";
 
 const StyledRegisterPage = styled.main`
   height: calc(100vh - 100px);
@@ -146,7 +147,8 @@ const Register = () => {
 
   return (
     <StyledRegisterPage>
-      <StyledHeader>Register</StyledHeader>
+      <StyledHeader><Typewriter text={'Register'} speed={50}/></StyledHeader>
+
       <form onSubmit={formik.handleSubmit}>
         <FormikInput
           type="text"

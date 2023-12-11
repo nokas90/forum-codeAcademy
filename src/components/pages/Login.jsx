@@ -6,6 +6,7 @@ import bcrypt from 'bcryptjs';
 import { useNavigate } from 'react-router-dom';
 import UsersContext from "../../contexts/UserContext";
 import FormikInput from "../../components/UI/FormitInput";
+import Typewriter from "../UI/TypeWriter";
 
 const StyledLoginPage = styled.main`
   height: calc(100vh - 100px);
@@ -85,7 +86,7 @@ const Login = () => {
 
   return (
     <StyledLoginPage>
-      <StyledHeader>Login</StyledHeader>
+      <StyledHeader><Typewriter text={'Login'} speed={50}/></StyledHeader>
       <form onSubmit={formik.handleSubmit}>
         <FormikInput
           type="email"
