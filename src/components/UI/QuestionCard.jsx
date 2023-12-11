@@ -37,7 +37,7 @@ const QuestionContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: end;
-    gap: 5px;
+    gap: 3px;
     font-size: 0.8rem;
     color: #E23E57;
     
