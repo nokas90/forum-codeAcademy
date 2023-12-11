@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useContext } from "react";
 import UsersContext from "../../contexts/UserContext";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -52,13 +53,10 @@ const StyledHeader = styled.header`
     flex-direction: column-reverse;
     align-items:center;
     justify-content:center;
-    gap:10px
+    gap:10px;
+    height: 158px;
   }
 `;
-
-const StyledButton = styled.button`
-   font-size:0.8rem;
-`
 
 const NavBar = () => {
   const { loggedInUser, setLoggedInUser } = useContext(UsersContext);
@@ -110,14 +108,14 @@ const NavBar = () => {
               alt={`${loggedInUser.userName} profile picture`}
             />
             <span>{loggedInUser.userName}</span>
-            <StyledButton
-              onClick={() => {
+            
+              
+            
+              <LogoutIcon style={{cursor:'pointer'}} onClick={() => {
                 setLoggedInUser("");
                 navigate("/");
-              }}
-            >
-              LogOut
-            </StyledButton>
+              }}/>
+            
           </div>
         </div>
       )}
