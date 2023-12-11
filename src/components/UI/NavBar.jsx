@@ -46,6 +46,7 @@ const StyledHeader = styled.header`
     gap: 20px;
     color: #dfdfdf;
     > img {
+      border-radius:50%;
       height: 30px;
     }
   }

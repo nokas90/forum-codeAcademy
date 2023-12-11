@@ -1,0 +1,236 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "creatorId": "usr1",
+      "title": "First Question",
+      "question": "What is JSON?",
+      "numberOfLikes": 21,
+      "isEdited": false,
+      "upvote": false,
+      "createdDate": "05/3/2023, 12:11:55 AM",
+      "votedBy": []
+    },
+    {
+      "id": "2",
+      "creatorId": "usr1",
+      "title": "Second Question",
+      "question": "What is JSON2?",
+      "numberOfLikes": 9,
+      "isEdited": false,
+      "upvote": true,
+      "createdDate": "11/2/2023, 6:34:50 AM",
+      "votedBy": "usr1"
+    },
+    {
+      "id": "3",
+      "creatorId": "usr1",
+      "title": "Third Question",
+      "question": "What is JSON3?",
+      "numberOfLikes": 2,
+      "upvote": false,
+      "createdDate": "4/8/2023, 9:11:55 PM",
+      "votedBy": [
+        "usr1",
+        "user2"
+      ]
+    },
+    {
+      "id": "4",
+      "creatorId": "usr2",
+      "title": "Fourt Question",
+      "question": "What is JSON4?",
+      "numberOfLikes": 1,
+      "isEdited": false,
+      "upvote": false,
+      "createdDate": "12/5/2023, 10:11:55 AM",
+      "votedBy": [
+        "usr1"
+      ]
+    },
+    {
+      "id": "5",
+      "creatorId": "usr2",
+      "title": "Fifth Question",
+      "question": "What is JSON5?",
+      "numberOfLikes": 532,
+      "isEdited": false,
+      "upvote": false,
+      "createdDate": "12/5/2023, 12:11:55 AM",
+      "votedBy": [
+        "usr1",
+        "user2",
+        "user3",
+        "user4",
+        "user5"
+      ]
+    },
+    {
+      "id": "c4bc3ae0-ab08-41ab-a45d-90fbc485a11c",
+      "createdDate": "12/5/2023, 8:08:20 AM",
+      "title": "testtest",
+      "question": "testtesttest",
+      "isEdited": false,
+      "numberOfLikes": 1,
+      "upvote": false,
+      "votedBy": [
+        "usr1",
+        "user2",
+        "user3",
+        "user4",
+        "user5"
+      ]
+    },
+    {
+      "id": "1929c38d-aeb7-4c12-81ab-1e32d718d78b",
+      "creatorId": "usr1",
+      "createdDate": "12/9/2023, 3:14:13 PM",
+      "creatorName": "Alice",
+      "title": "Kas rajone rimciausias?",
+      "question": "Valiera neskolin.",
+      "numberOfLikes": 4,
+      "isEdited": true,
+      "upvote": true,
+      "votedBy": "usr1",
+      "editedDate": "12/10/2023, 6:43:02 PM"
+    },
+    {
+      "id": "891f6d2d-1de5-4704-ae63-8b690e259d4e",
+      "creatorId": "usr1",
+      "createdDate": "12/10/2023, 7:00:08 PM",
+      "creatorName": "Alice",
+      "title": "Top Serialas???",
+      "question": "Koks geriausias serialas siai dienai????",
+      "numberOfLikes": 16,
+      "isEdited": true,
+      "editedDate": "12/10/2023, 7:02:07 PM"
+    }
+  ],
+  "answers": [
+    {
+      "id": "11",
+      "questionId": "1",
+      "creatorId": "usr2",
+      "answer": "JSON stands for JavaScript Object Notation",
+      "numberOfLikes": 5,
+      "isEdited": false,
+      "upvote": false,
+      "createdDate": "6/5/2023, 1:11:55 PM",
+      "votedBy": [
+        "usr1",
+        "user2",
+        "user3",
+        "user4",
+        "user5"
+      ]
+    },
+    {
+      "id": "12",
+      "questionId": "2",
+      "creatorId": "usr1",
+      "answer": "JSON stands for JavaScript Object Notation222222",
+      "numberOfLikes": 2,
+      "isEdited": true,
+      "upvote": false,
+      "createdDate": "2/5/2023, 8:14:55 AM",
+      "editedDate": "12/10/2023, 8:07:35 PM",
+      "votedBy": [
+        "usr1",
+        "user2",
+        "user3",
+        "user4",
+        "user5"
+      ]
+    },
+    {
+      "id": "13",
+      "questionId": "3",
+      "creatorId": "usr2",
+      "answer": "JSON stands for JavaScript Object Notation33333",
+      "numberOfLikes": 3,
+      "upvote": false,
+      "isEdited": true,
+      "createdDate": "4/1/2023, 7:35:55 pM",
+      "votedBy": [
+        "usr1",
+        "user2",
+        "user3",
+        "user4",
+        "user5"
+      ]
+    },
+    {
+      "id": "14",
+      "questionId": "3",
+      "creatorId": "usr2",
+      "answer": "JSON stands for JavaScript Object Notation44444",
+      "numberOfLikes": 3,
+      "upvote": false,
+      "isEdited": false,
+      "createdDate": "8/1/2023, 7:11:55 AM",
+      "votedBy": [
+        "usr1",
+        "user2",
+        "user3",
+        "user4",
+        "user5"
+      ]
+    },
+    {
+      "id": "15",
+      "questionId": "1",
+      "creatorId": "usr2",
+      "answer": "JSON stands for JavaScript Object Notation55555",
+      "numberOfLikes": 5,
+      "upvote": false,
+      "isEdited": true,
+      "createdDate": "12/1/2023, 6:13:55 AM",
+      "votedBy": [
+        "usr1",
+        "user2",
+        "user3",
+        "user4",
+        "user5"
+      ]
+    },
+    {
+      "id": "f7be5ffb-7bd8-4799-a1d5-9346c22864ae",
+      "questionId": "891f6d2d-1de5-4704-ae63-8b690e259d4e",
+      "creatorId": "usr1",
+      "creatorName": "Alice",
+      "answer": "Nelabai yra siai dienai o gal yra reik ieskot kazkur topu",
+      "numberOfLikes": 2,
+      "isEdited": true,
+      "createdDate": "12/10/2023, 8:40:19 PM",
+      "editedDate": "12/11/2023, 11:33:47 AM"
+    },
+    {
+      "id": "4b7fe982-0c03-4e09-94df-879a9b6a9d4d",
+      "questionId": "1929c38d-aeb7-4c12-81ab-1e32d718d78b",
+      "creatorId": "usr1",
+      "creatorName": "Alice",
+      "answer": "tep",
+      "numberOfLikes": 2,
+      "isEdited": false,
+      "createdDate": "12/11/2023, 9:38:09 AM"
+    }
+  ],
+  "users": [
+    {
+      "id": "usr1",
+      "userName": "Alice",
+      "email": "alice@email.com",
+      "passwordNormal": "alicepassword",
+      "password": "alicepassword",
+      "profilePic": "https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819_640.png"
+    },
+    {
+      "id": "usr2",
+      "userName": "Bob",
+      "email": "bob@email.com",
+      "passwordNormal": "bobpassword",
+      "password": "bobpassword",
+      "profilePic": "https://cdn.pixabay.com/photo/2016/04/26/07/57/woman-1353825_640.png"
+    }
+  ]
+}

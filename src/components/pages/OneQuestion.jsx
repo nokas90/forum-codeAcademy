@@ -6,6 +6,10 @@ import UsersContext from "../../contexts/UserContext";
 import ForumAnswersContext from "../../contexts/ForumAnswersContext";
 import AnswerCard from "../UI/AnswerCard";
 import Typewriter from "../UI/TypeWriter";
+import {
+  CalculateTimeAgo,
+  FormatDate,
+} from "../helperFunctions/DataManipulation";
 
 const TopWrapper = styled.div`
   height: calc(100vh - 100px);
@@ -279,7 +283,6 @@ const OneQuestion = () => {
         });
     }
   }, [setQuestions]);
-
   return (
     question && (
       <TopWrapper>
@@ -336,8 +339,10 @@ const OneQuestion = () => {
             <p>{question.question}</p>
             <div className="questionsDate">
               {question.Creator && <span>Creator: {question.creatorName}</span>}
-              <span>Created: {question.createdDate}</span>
-              {question.isEdited && <span>Edited: {question.editedDate}</span>}
+              <span>Created: {FormatDate(question.createdDate)}</span>
+              {question.isEdited && (
+                <span>Edited: {CalculateTimeAgo(question.editedDate)}</span>
+              )}
             </div>
           </div>
           {loggedInUser && (

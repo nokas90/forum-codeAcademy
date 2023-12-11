@@ -5,6 +5,7 @@ import { useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ForumQuestionsContext from "../../contexts/ForumQuestionsContext";
 import FormikInput from "../UI/FormitInput";
+import Typewriter from "../UI/TypeWriter";
 
 const StyledEditFormPage = styled.main`
 
@@ -61,7 +62,7 @@ const EditQuestion = () => {
           ...data,
         });
       });
-  }, []);
+  }, [id]);
 
   const validationSchema = Yup.object({
     title: Yup.string()
@@ -77,7 +78,7 @@ const EditQuestion = () => {
 
   return (
     <StyledEditFormPage>
-      <StyledHeader>Edit Question</StyledHeader>
+    <StyledHeader><Typewriter text={"Edit Question"} speed={50} /></StyledHeader>
       {formValues.title && (
         <Formik
           initialValues={formValues}

@@ -1,136 +1,50 @@
 {
   "questions": [
     {
-      "id": "1",
+      "id": "8a6a1ad5-01a5-413b-b061-020fdfe4c214",
       "creatorId": "usr1",
-      "title": "First Question111",
-      "question": "What is JSON?",
-      "numberOfLikes": 5,
+      "createdDate": "2023-12-11T14:07:21.943Z",
+      "creatorName": "Alice",
+      "title": "asdasdasd",
+      "question": "asdasf34w56twesgf2342rfdsdf",
+      "numberOfLikes": 0,
       "isEdited": true,
-      "createdDate": "05/3/2023, 12:11:55 AM",
-      "editedDate": "12/8/2023, 7:36:19 PM"
+      "editedDate": "12/11/2023, 4:08:54 PM"
     },
     {
-      "id": "2",
-      "creatorId": "usr1",
-      "title": "Second Question Second2aasa22",
-      "question": "What is JSON2???22222",
-      "numberOfLikes": 5,
-      "isEdited": true,
-      "createdDate": "11/2/2023, 6:34:50 AM",
-      "editedDate": "12/8/2023, 4:51:56 PM"
-    },
-    {
-      "id": "3",
-      "creatorId": "usr1",
-      "title": "Third Question",
-      "question": "What is JSON3?",
-      "numberOfLikes": 2,
-      "isEdited": true,
-      "createdDate": "4/8/2023, 9:11:55 PM"
-    },
-    {
-      "id": "4",
-      "creatorId": "usr2",
-      "title": "Fourt Question",
-      "question": "What is JSON4?",
+      "id": "b3f5c4e9-1d72-46a9-9d6f-8169741231cd",
+      "creatorId": "a3f68801-3408-4362-855b-76066283ff2e",
+      "createdDate": "2023-12-11T14:09:48.406Z",
+      "creatorName": "Julie",
+      "title": "asd3sdvst34",
+      "question": "sdgewvs543testfcfdg45345345asdasd",
       "numberOfLikes": 1,
-      "isEdited": false,
-      "createdDate": "12/5/2023, 10:11:55 AM"
-    },
-    {
-      "id": "5",
-      "creatorId": "usr2",
-      "title": "Fifth Question",
-      "question": "What is JSON5?",
-      "numberOfLikes": 533,
-      "isEdited": false,
-      "createdDate": "12/5/2023, 12:11:55 AM"
-    },
-    {
-      "id": "c4bc3ae0-ab08-41ab-a45d-90fbc485a11c",
-      "createdDate": "12/5/2023, 8:08:20 AM",
-      "title": "testtest",
-      "question": "testtesttest",
-      "isEdited": false,
-      "numberOfLikes": 0
+      "isEdited": true,
+      "editedDate": "12/11/2023, 4:11:34 PM"
     }
   ],
   "answers": [
     {
-      "id": "11",
-      "questionId": "1",
-      "creatorId": "usr2",
-      "answer": "JSON stands for JavaScript Object Notation",
-      "numberOfLikes": 3,
-      "isEdited": false,
-      "createdDate": "6/5/2023, 1:11:55 PM"
-    },
-    {
-      "id": "12",
-      "questionId": "2",
+      "id": "be9acaf1-b68c-46f7-b4a3-37d03d526efe",
+      "questionId": "8a6a1ad5-01a5-413b-b061-020fdfe4c214",
       "creatorId": "usr1",
-      "answer": "JSON stands for JavaScript Object Notation222222",
-      "numberOfLikes": 3,
-      "isEdited": false,
-      "createdDate": "2/5/2023, 8:14:55 AM"
-    },
-    {
-      "id": "13",
-      "questionId": "3",
-      "creatorId": "usr2",
-      "answer": "JSON stands for JavaScript Object Notation33333",
-      "numberOfLikes": 3,
+      "creatorName": "Alice",
+      "answer": "asdasf32wtrw457esgst4asfasf",
+      "numberOfLikes": 0,
       "isEdited": true,
-      "createdDate": "4/1/2023, 7:35:55 pM"
+      "createdDate": "2023-12-11T14:07:52.831Z",
+      "editedDate": "12/11/2023, 4:08:41 PM"
     },
     {
-      "id": "14",
-      "questionId": "3",
-      "creatorId": "usr2",
-      "answer": "JSON stands for JavaScript Object Notation44444",
-      "numberOfLikes": 3,
-      "isEdited": false,
-      "createdDate": "8/1/2023, 7:11:55 AM"
-    },
-    {
-      "id": "15",
-      "questionId": "1",
-      "creatorId": "usr2",
-      "answer": "JSON stands for JavaScript Object Notation55555",
-      "numberOfLikes": 3,
+      "id": "fa9d33ba-a50c-4a51-8938-2dbb223a6e65",
+      "questionId": "b3f5c4e9-1d72-46a9-9d6f-8169741231cd",
+      "creatorId": "a3f68801-3408-4362-855b-76066283ff2e",
+      "creatorName": "Julie",
+      "answer": "wet43ytgedgsswr3rwar345345",
+      "numberOfLikes": 1,
       "isEdited": true,
-      "createdDate": "12/1/2023, 6:13:55 AM"
-    },
-    {
-      "id": "30f1281e-73fb-43ce-b2af-bb0747d16f82",
-      "questionId": "4",
-      "creatorId": "usr1",
-      "creatorName": "Alice",
-      "answer": "sfdsdfsdf",
-      "numberOfLikes": 0,
-      "isEdited": false,
-      "createdDate": "12/8/2023, 4:25:49 PM"
-    },
-    {
-      "id": "b109da88-55e6-4a1b-8f68-685355ff2157",
-      "questionId": "1",
-      "creatorId": "usr1",
-      "creatorName": "Alice",
-      "answer": "jajajajaj",
-      "numberOfLikes": 0,
-      "isEdited": false,
-      "createdDate": "12/8/2023, 4:59:58 PM"
-    },
-    {
-      "id": "e6fb1a73-049c-4f7f-b357-7927072bd0d6",
-      "questionId": "4",
-      "creatorId": "usr1",
-      "creatorName": "Alice",
-      "answer": "asdasdwrq23r23r23r23r",
-      "numberOfLikes": 0,
-      "isEdited": false,
-      "createdDate": "12/8/2023, 8:14:15 PM"
+      "createdDate": "2023-12-11T14:09:59.607Z",
+      "editedDate": "12/11/2023, 4:10:02 PM"
     }
   ],
   "users": [
@@ -149,6 +63,22 @@
       "passwordNormal": "bobpassword",
       "password": "bobpassword",
       "profilePic": "https://cdn.pixabay.com/photo/2016/04/26/07/57/woman-1353825_640.png"
+    },
+    {
+      "id": "af36ba02-ee3d-484c-a8bf-445b3c5c147b",
+      "userName": "John55",
+      "email": "john@email.com",
+      "passwordNormal": "johnPassword1!",
+      "password": "$2a$08$/gnVMnBdcsyimWqjPLjzW.Zhr3aTqcRt3WvNx6WFQL0ruLNvJEt7q",
+      "profilePic": "https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584_640.png"
+    },
+    {
+      "id": "a3f68801-3408-4362-855b-76066283ff2e",
+      "userName": "Julie",
+      "email": "julie@gmail.com",
+      "passwordNormal": "juliePassword1!",
+      "password": "$2a$08$MZgMvWx9SVK2cb68p42e9usfk1miOyesq9ywShYj1L8LyqUi0KbUG",
+      "profilePic": "https://cdn.pixabay.com/photo/2023/03/30/03/56/graffiti-art-7886746_640.jpg"
     }
   ]
 }

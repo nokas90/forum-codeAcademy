@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import {CalculateTimeAgo, FormatDate} from "../helperFunctions/DataManipulation";
+
+
 
 const QuestionContainer = styled.div`
   position: relative;
@@ -59,7 +62,6 @@ const QuestionContainer = styled.div`
   }
 `;
 
-  
 
 const QuestionCard = ({ data }) => {
   return (
@@ -83,8 +85,11 @@ const QuestionCard = ({ data }) => {
         <p>{data.question}</p>
         <div className="questionsDate">
           <span>Creator: {data.creatorName}</span>
-          <span>Created: {data.createdDate}</span>
-          {data.isEdited && <span>Edited: {data.editedDate}</span>}
+          <span>Created: {FormatDate(data.createdDate)}</span>
+          {data.isEdited && (
+            <span>Edited: {CalculateTimeAgo(data.editedDate)}</span>
+
+      )}
         </div>
       </div>
     </QuestionContainer>

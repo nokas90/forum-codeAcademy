@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import UsersContext from "../../contexts/UserContext";
 import ForumQuestionsContext from "../../contexts/ForumQuestionsContext";
 import FormikInput from "../UI/FormitInput";
+import Typewriter from "../UI/TypeWriter";
+import { FormatDate } from "../helperFunctions/DataManipulation";
+
 
 const StyledAddFormPage = styled.main`
   height: calc(100vh - 91px);
@@ -71,7 +74,7 @@ const AddQuestion = () => {
       const finalValues = {
         id: uuid(),
         creatorId: loggedInUser.id,
-        createdDate: new Date().toLocaleString(),
+        createdDate: new Date().toISOString(),
         creatorName: loggedInUser.userName,
         ...values,
         numberOfLikes: 0,
@@ -88,13 +91,13 @@ const AddQuestion = () => {
 
   return (
     <StyledAddFormPage>
-      <StyledHeader>Add New Question</StyledHeader>
+      <StyledHeader><Typewriter text={"Add New Question"} speed={50} /></StyledHeader>
       <form onSubmit={formik.handleSubmit}>
         <FormikInput type="text" name="title" formik={formik} />
         <FormikInput
           type="textarea"
-          rows={5}
-          columns={15}
+          rows={10}
+          columns={30}
           name="question"
           formik={formik}
         />

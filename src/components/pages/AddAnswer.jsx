@@ -7,6 +7,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import UsersContext from "../../contexts/UserContext";
 import ForumAnswersContext from "../../contexts/ForumAnswersContext";
 import FormikInput from "../UI/FormitInput";
+import Typewriter from "../UI/TypeWriter";
+import { FormatDate } from "../helperFunctions/DataManipulation";
 
 const StyledAddFormPage = styled.main`
     height: calc(100vh - 100px);
@@ -57,7 +59,7 @@ const AddAnswer = () => {
   const validationSchema = Yup.object({
     answer: Yup.string()
       .min(3, "Minimum length 3 symbols")
-      .max(100, "Reached maximum 100 words")
+      .max(500, "Reached maximum 500 words")
       .required("This field must be filled")
       .trim(),
   });
@@ -74,7 +76,7 @@ const AddAnswer = () => {
         answer: values.answer,
         numberOfLikes: 0,
         isEdited: false,
-        createdDate: new Date().toLocaleString(),
+        createdDate: new Date().toISOString(),
       };
       console.log("Question ID before setAnswers:", id);
       console.log(answerData);
@@ -91,9 +93,16 @@ const AddAnswer = () => {
 
   return (
     <StyledAddFormPage>
-      <StyledHeader>Add Answer</StyledHeader>
+      <StyledHeader><Typewriter text={"Add Answer"} speed={50} /></StyledHeader>
+
       <form onSubmit={formik.handleSubmit}>
-        <FormikInput type="text" name="answer" formik={formik} />
+      <FormikInput
+          type="textarea"
+          rows={10}
+          columns={30}
+          name="answer"
+          formik={formik}
+        />
         <button type="submit">Submit Answer</button>
       </form>
     </StyledAddFormPage>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import UsersContext from "../../contexts/UserContext";
 import ForumAnswersContext from "../../contexts/ForumAnswersContext";
 import EditAnswer from "../pages/EditAnswer";
+import {CalculateTimeAgo, FormatDate} from "../helperFunctions/DataManipulation";
 
 const AnswersContainer = styled.div`
   display: flex;
@@ -21,8 +22,8 @@ const AnswersContainer = styled.div`
   .answer {
     color: #dfdfdf;
     position: relative;
-    
-    p{
+
+    p {
       font-size: 0.8rem;
     }
   }
@@ -78,8 +79,7 @@ const VoteButton = styled.button`
 `;
 
 const AnswerCard = ({ data }) => {
-  const { setAnswers, AnswersActionTypes } =
-    useContext(ForumAnswersContext);
+  const { setAnswers, AnswersActionTypes } = useContext(ForumAnswersContext);
   const { loggedInUser } = useContext(UsersContext);
   const [editClick, setEditClick] = useState(false);
   const [userVotes, setUserVotes] = useState(
@@ -238,7 +238,6 @@ const AnswerCard = ({ data }) => {
     }
   };
 
-
   return (
     data && (
       <>
@@ -296,8 +295,11 @@ const AnswerCard = ({ data }) => {
             </div>
           </div>
           <div className="answerDate">
-            <span>Created: {data.createdDate}</span>
-            {data.isEdited && <span>Edited: {data.editedDate}</span>}
+          <span>Created: {FormatDate(data.createdDate)}</span>
+          {data.isEdited && (
+            <span>Edited: {CalculateTimeAgo(data.editedDate)}</span>
+
+      )}
           </div>
         </AnswersContainer>
         {editClick && <EditAnswer data={data} setEditClick={setEditClick} />}

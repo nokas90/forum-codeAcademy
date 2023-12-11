@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useContext, useState, useEffect } from "react";
 import ForumAnswersContext from "../../contexts/ForumAnswersContext";
 import FormikInput from "../UI/FormitInput";
+import Typewriter from "../UI/TypeWriter";
 
 const StyledEditFormPage = styled.main`
   display: flex;
@@ -61,7 +62,8 @@ const EditAnswer = ({ data, setEditClick }) => {
 
   return (
     <StyledEditFormPage>
-      <StyledHeader>Edit Answer</StyledHeader>
+      <StyledHeader><Typewriter text={"Edit Answer"} speed={50} /></StyledHeader>
+
       {formValues.answer && (
         <Formik
           initialValues={formValues}

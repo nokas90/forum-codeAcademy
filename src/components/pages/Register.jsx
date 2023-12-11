@@ -69,7 +69,7 @@ const Register = () => {
       .trim(),
     password: Yup.string()
       .matches(
-        /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}$/,
+        /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{5,20}$/,
         "Password must be 5-20 length, contain at least one uppercase, one lowercase, one number and one special symbol"
       )
       .required("Field must be filled")

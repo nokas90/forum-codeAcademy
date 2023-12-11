@@ -13,8 +13,7 @@ const FormikInput = ({ type, name, formik, placeholder, rows, columns }) => {
           onBlur={formik.handleBlur}
           placeholder={placeholder ? placeholder : ''}
           rows={rows}
-          columns={columns}
-          style={{ resize: 'none' }} 
+          style={{ width: `${columns}em`, resize: 'none' }}
         />
       ) : (
         <input
