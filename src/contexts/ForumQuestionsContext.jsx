@@ -45,7 +45,7 @@ const reducer = (state, action) => {
         }
       });
 
-      case QuestionsActionTypes.filterAnsweredQuestion:
+    case QuestionsActionTypes.filterAnsweredQuestion:
       // Filter questions with answers
       const questionsWithAnswers = state.filter(
         (question) => question.answers.length > 0
