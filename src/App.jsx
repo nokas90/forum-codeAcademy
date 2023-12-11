@@ -10,6 +10,7 @@ import AddQuestion from "./components/pages/AddQuestion";
 import AddAnswer from "./components/pages/AddAnswer";
 import EditQuestion from "./components/pages/EditQuestion";
 import EditAnswer from "./components/pages/EditAnswer";
+import Footer from "./components/pages/Footer";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="register" element={<Register />} />
         </Route>
       </Routes>
+      <Footer/>
     </>
   );
 }
