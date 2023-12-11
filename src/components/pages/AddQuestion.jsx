@@ -1,54 +1,65 @@
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import styled from 'styled-components';
-import { v4 as uuid } from 'uuid';
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import UsersContext from '../../contexts/UserContext';
-import ForumQuestionsContext from '../../contexts/ForumQuestionsContext';
-import FormikInput from '../UI/FormitInput';
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import styled from "styled-components";
+import { v4 as uuid } from "uuid";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import UsersContext from "../../contexts/UserContext";
+import ForumQuestionsContext from "../../contexts/ForumQuestionsContext";
+import FormikInput from "../UI/FormitInput";
 
 const StyledAddFormPage = styled.main`
+  height: calc(100vh - 91px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  > form{
+  > form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    
-    > div{
+
+    > div {
       display: grid;
       grid-template-columns: 1fr 3fr;
-      
-      > p{
+
+      > p {
         grid-column: span 2;
       }
     }
   }
 `;
+const StyledHeader = styled.h1`
+  text-align: center;
+  color: #420b3b;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+  margin: 15px 0px;
+`;
 
 const AddQuestion = () => {
-
-  const { setQuestions, QuestionsActionTypes } = useContext(ForumQuestionsContext);
+  const { setQuestions, QuestionsActionTypes } = useContext(
+    ForumQuestionsContext
+  );
   const { loggedInUser } = useContext(UsersContext);
   const navigate = useNavigate();
 
   const values = {
-    title: '',
-    question: ''
+    title: "",
+    question: "",
   };
 
   const validationSchema = Yup.object({
     title: Yup.string()
-      .min(5, 'Minimum length 5 symbols')
-      .max(50, 'Maximum length 50 symbols')
-      .required('This field must be filled')
+      .min(5, "Minimum length 5 symbols")
+      .max(100, "Reached maximum 100 words")
+      .required("This field must be filled")
       .trim(),
-      question: Yup.string()
-      .min(10, 'Minimum length 10 symbols')
-      .required('This field must be filled')
+    question: Yup.string()
+      .min(10, "Minimum length 10 symbols")
+      .required("This field must be filled")
       .trim(),
   });
 
@@ -61,6 +72,7 @@ const AddQuestion = () => {
         id: uuid(),
         creatorId: loggedInUser.id,
         createdDate: new Date().toLocaleString(),
+        creatorName: loggedInUser.userName,
         ...values,
         numberOfLikes: 0,
         isEdited: false,
@@ -68,22 +80,18 @@ const AddQuestion = () => {
       // console.log(finalValues);
       setQuestions({
         type: QuestionsActionTypes.add,
-        data: finalValues
+        data: finalValues,
       });
-      navigate('/questions/allQuestions');
-    }
-  })
+      navigate("/questions/allQuestions");
+    },
+  });
 
   return (
     <StyledAddFormPage>
-      <h1>Add New Question</h1>
+      <StyledHeader>Add New Question</StyledHeader>
       <form onSubmit={formik.handleSubmit}>
-        <FormikInput 
-          type="text"
-          name="title"
-          formik={formik}
-        />
-        <FormikInput 
+        <FormikInput type="text" name="title" formik={formik} />
+        <FormikInput
           type="textarea"
           rows={5}
           columns={15}
@@ -94,6 +102,6 @@ const AddQuestion = () => {
       </form>
     </StyledAddFormPage>
   );
-}
- 
+};
+
 export default AddQuestion;

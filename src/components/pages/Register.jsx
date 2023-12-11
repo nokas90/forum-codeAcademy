@@ -9,6 +9,8 @@ import UsersContext from "../../contexts/UserContext";
 import FormikInput from "../../components/UI/FormitInput";
 
 const StyledRegisterPage = styled.main`
+  height: calc(100vh - 100px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +29,14 @@ const StyledRegisterPage = styled.main`
       }
     }
   }
+`;
+const StyledHeader = styled.h1`
+  text-align: center;
+  color: #420b3b;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+  margin: 15px 0px;
 `;
 
 const Register = () => {
@@ -136,7 +146,7 @@ const Register = () => {
 
   return (
     <StyledRegisterPage>
-      <h1>Register</h1>
+      <StyledHeader>Register</StyledHeader>
       <form onSubmit={formik.handleSubmit}>
         <FormikInput
           type="text"

@@ -8,6 +8,8 @@ import UsersContext from "../../contexts/UserContext";
 import FormikInput from "../../components/UI/FormitInput";
 
 const StyledLoginPage = styled.main`
+  height: calc(100vh - 100px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,6 +28,14 @@ const StyledLoginPage = styled.main`
       }
     }
   }
+`;
+const StyledHeader = styled.h1`
+  text-align: center;
+  color: #420b3b;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+  margin: 15px 0px;
 `;
 
 const Login = () => {
@@ -75,7 +85,7 @@ const Login = () => {
 
   return (
     <StyledLoginPage>
-      <h1>Login</h1>
+      <StyledHeader>Login</StyledHeader>
       <form onSubmit={formik.handleSubmit}>
         <FormikInput
           type="email"

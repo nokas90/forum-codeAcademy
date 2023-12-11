@@ -8,16 +8,20 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 5px 50px;
+  height: 60px;
   align-items: center;
-  background-color: #b0a695;
-  margin-bottom: 20px;
+  background-color: #311D3F;
+  /* margin-bottom: 20px; */
+  box-shadow: 0 20px 100px #047500f0;
 
   .logo {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     margin: 0;
   }
   ul {
     margin: 0px;
+    padding-left:0;
+
   }
   li {
     list-style-type: none;
@@ -37,12 +41,24 @@ const StyledHeader = styled.header`
   div.userInfo {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
+    color: #dfdfdf;
     > img {
       height: 30px;
     }
   }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    align-items:center;
+    justify-content:center;
+    gap:10px
+  }
 `;
+
+const StyledButton = styled.button`
+   font-size:0.8rem;
+`
 
 const NavBar = () => {
   const { loggedInUser, setLoggedInUser } = useContext(UsersContext);
@@ -94,14 +110,14 @@ const NavBar = () => {
               alt={`${loggedInUser.userName} profile picture`}
             />
             <span>{loggedInUser.userName}</span>
-            <button
+            <StyledButton
               onClick={() => {
                 setLoggedInUser("");
                 navigate("/");
               }}
             >
               LogOut
-            </button>
+            </StyledButton>
           </div>
         </div>
       )}

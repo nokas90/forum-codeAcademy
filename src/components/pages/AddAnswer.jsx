@@ -9,6 +9,9 @@ import ForumAnswersContext from "../../contexts/ForumAnswersContext";
 import FormikInput from "../UI/FormitInput";
 
 const StyledAddFormPage = styled.main`
+    height: calc(100vh - 100px);
+
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +31,14 @@ const StyledAddFormPage = styled.main`
     }
   }
 `;
+const StyledHeader = styled.h1`
+  text-align: center;
+  color: #420b3b;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+  margin: 15px 0px;
+`;
 
 const AddAnswer = () => {
   const { id } = useParams();
@@ -46,6 +57,7 @@ const AddAnswer = () => {
   const validationSchema = Yup.object({
     answer: Yup.string()
       .min(3, "Minimum length 3 symbols")
+      .max(100, "Reached maximum 100 words")
       .required("This field must be filled")
       .trim(),
   });
@@ -79,7 +91,7 @@ const AddAnswer = () => {
 
   return (
     <StyledAddFormPage>
-      <h1>Add Answer</h1>
+      <StyledHeader>Add Answer</StyledHeader>
       <form onSubmit={formik.handleSubmit}>
         <FormikInput type="text" name="answer" formik={formik} />
         <button type="submit">Submit Answer</button>

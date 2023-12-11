@@ -27,6 +27,14 @@ const StyledEditFormPage = styled.main`
     }
   }
 `;
+const StyledHeader = styled.h1`
+  text-align: center;
+  color: #dfdfdf;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+  margin: 15px 0px;
+`;
 
 const EditAnswer = ({ data, setEditClick }) => {
   const { answers, setAnswers, AnswersActionTypes } =
@@ -55,7 +63,7 @@ const EditAnswer = ({ data, setEditClick }) => {
 
   return (
     <StyledEditFormPage>
-      <h1>Edit Answer</h1>
+      <StyledHeader>Edit Answer</StyledHeader>
       {formValues.answer && (
         <Formik
           initialValues={formValues}

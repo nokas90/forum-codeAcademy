@@ -8,6 +8,9 @@ import ForumQuestionsContext from "../../contexts/ForumQuestionsContext";
 import FormikInput from "../UI/FormitInput";
 
 const StyledEditFormPage = styled.main`
+
+height: calc(100vh - 100px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,13 +22,21 @@ const StyledEditFormPage = styled.main`
 
     > div {
       display: grid;
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 1fr 5fr;
 
       > p {
         grid-column: span 2;
       }
     }
   }
+`;
+const StyledHeader = styled.h1`
+  text-align: center;
+  color: #420b3b;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+  margin: 15px 0px;
 `;
 
 const EditQuestion = () => {
@@ -51,7 +62,7 @@ const EditQuestion = () => {
           ...data,
         });
       });
-  }, [formValues.title]);
+  }, [formValues, navigate]);
 
   const validationSchema = Yup.object({
     title: Yup.string()
@@ -67,7 +78,7 @@ const EditQuestion = () => {
 
   return (
     <StyledEditFormPage>
-      <h1>Edit Question</h1>
+      <StyledHeader>Edit Question</StyledHeader>
       {formValues.title && (
         <Formik
           initialValues={formValues}
@@ -91,7 +102,12 @@ const EditQuestion = () => {
           {(props) => (
             <form onSubmit={props.handleSubmit}>
               <FormikInput type="text" name="title" formik={props} />
-              <FormikInput type="text" name="question" formik={props} />
+              <FormikInput
+                type="textarea"
+                rows={5}
+                name="question"
+                formik={props}
+              />
               <button type="Submit">Edit Question</button>
             </form>
           )}
