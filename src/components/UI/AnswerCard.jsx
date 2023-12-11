@@ -1,36 +1,71 @@
 import { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UsersContext from "../../contexts/UserContext";
-import AddAnswer from "../pages/AddAnswer";
-import VoteComponent from "../UI/VoteComponent";
 import ForumAnswersContext from "../../contexts/ForumAnswersContext";
 import EditAnswer from "../pages/EditAnswer";
 
 const AnswersContainer = styled.div`
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
-  width: 80%;
+  gap: 20px;
+  width: 600px;
+  background-color: #e23e57;
+  border-radius: 3px;
   margin: 0 auto;
   padding: 10px;
-  border: solid red 1px;
+  border: solid lightcoral 1px;
+  box-shadow: 3px 0px 20px 5px #522546;
+
+  .answer {
+    color: #dfdfdf;
+    position: relative;
+    
+    p{
+      font-size: 0.8rem;
+    }
+  }
 
   .oneAnswer {
     position: relative;
     display: flex;
-    border: 2px blue solid;
-    flex-direction: column;
-    justify-content: center;
+    gap: 10px;
+    flex-grow: 3;
+    padding-right: 80px;
+    color: #deffde;
+
+    justify-content: space-between;
     align-items: start;
-    gap: 3px;
+    font-size: 0.9rem;
 
     > div {
       display: flex;
       gap: 5px;
     }
+  }
+  .answerDate {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    align-self: end;
+    color: #522546;
+  }
+
+  .answerSummary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #dfdfdf;
+    margin-bottom: 10px;
+    > div {
+      display: flex;
+      gap: 5px;
+    }
+  }
+  @media (max-width: 768px) {
+    width: 300px;
   }
 `;
 
@@ -38,38 +73,194 @@ const AbsoluteButton = styled.button`
   font-size: 0.7rem;
   position: absolute;
 `;
+const VoteButton = styled.button`
+  font-size: 0.7rem;
+`;
 
 const AnswerCard = ({ data }) => {
-  // console.log("Kas ta data?", data);
-  const { answers, setAnswers, AnswersActionTypes } =
+  const { setAnswers, AnswersActionTypes } =
     useContext(ForumAnswersContext);
-  const navigate = useNavigate();
   const { loggedInUser } = useContext(UsersContext);
   const [editClick, setEditClick] = useState(false);
+  const [userVotes, setUserVotes] = useState(
+    JSON.parse(localStorage.getItem("userVotesAnswer")) || {}
+  );
+  const [isUserVoted, setIsUserVoted] = useState(
+    userVotes[data.id] === "upvote" || userVotes[data.id] === "downvote"
+      ? userVotes[data.id]
+      : null
+  );
+  const [votes, setVotes] = useState("");
+
+  const handleUpvote = () => {
+    if (!isUserVoted) {
+      const newVoteCount = data.numberOfLikes + 1;
+
+      fetch(`http://localhost:8080/answers/${data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ numberOfLikes: newVoteCount }),
+      });
+
+      setAnswers((prevAnswersData) => ({
+        ...prevAnswersData,
+        numberOfLikes: newVoteCount,
+      }));
+
+      setUserVotes({ ...userVotes, [data.id]: "upvote" });
+      localStorage.setItem(
+        "userVotesAnswer",
+        JSON.stringify({ ...userVotes, [data.id]: "upvote" })
+      );
+      setIsUserVoted("upvote");
+      setVotes(newVoteCount);
+    } else if (isUserVoted === "upvote") {
+      const newVoteCount = data.numberOfLikes - 1;
+
+      fetch(`http://localhost:8080/answers/${data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ numberOfLikes: newVoteCount }),
+      });
+
+      setAnswers((prevAnswersData) => ({
+        ...prevAnswersData,
+        numberOfLikes: newVoteCount,
+      }));
+
+      setUserVotes({ ...userVotes, [data.id]: null });
+      localStorage.setItem(
+        "userVotesAnswers",
+        JSON.stringify({ ...userVotes, [data.id]: null })
+      );
+      setIsUserVoted(null);
+      setVotes(newVoteCount);
+    } else {
+      const newVoteCount = data.numberOfLikes + 2;
+
+      fetch(`http://localhost:8080/answers/${data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ numberOfLikes: newVoteCount }),
+      });
+
+      setAnswers((prevAnswersData) => ({
+        ...prevAnswersData,
+        numberOfLikes: newVoteCount,
+      }));
+
+      setUserVotes({ ...userVotes, [data.id]: "upvote" });
+      localStorage.setItem(
+        "userVotesAnswer",
+        JSON.stringify({ ...userVotes, [data.id]: "upvote" })
+      );
+      setIsUserVoted("upvote");
+      setVotes(newVoteCount);
+    }
+  };
+
+  const handleDownvote = () => {
+    if (!isUserVoted) {
+      const newVoteCount = data.numberOfLikes - 1;
+
+      fetch(`http://localhost:8080/answers/${data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ numberOfLikes: newVoteCount }),
+      });
+
+      setAnswers((prevAnswersData) => ({
+        ...prevAnswersData,
+        numberOfLikes: newVoteCount,
+      }));
+
+      setUserVotes({ ...userVotes, [data.id]: "downvote" });
+      localStorage.setItem(
+        "userVotesAnswer",
+        JSON.stringify({ ...userVotes, [data.id]: "downvote" })
+      );
+      setIsUserVoted("downvote");
+      setVotes(newVoteCount);
+    } else if (isUserVoted === "downvote") {
+      const newVoteCount = data.numberOfLikes + 1;
+
+      fetch(`http://localhost:8080/answers/${data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ numberOfLikes: newVoteCount }),
+      });
+
+      setAnswers((prevAnswersData) => ({
+        ...prevAnswersData,
+        numberOfLikes: newVoteCount,
+      }));
+
+      setUserVotes({ ...userVotes, [data.id]: null });
+      localStorage.setItem(
+        "userVotesAnswer",
+        JSON.stringify({ ...userVotes, [data.id]: null })
+      );
+      setIsUserVoted(null);
+      setVotes(newVoteCount);
+    } else {
+      const newVoteCount = data.numberOfLikes - 2;
+
+      fetch(`http://localhost:8080/answers/${data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ numberOfLikes: newVoteCount }),
+      });
+
+      setAnswers((prevAnswersData) => ({
+        ...prevAnswersData,
+        numberOfLikes: newVoteCount,
+      }));
+
+      setUserVotes({ ...userVotes, [data.id]: "downvote" });
+      localStorage.setItem(
+        "userVotesAnswer",
+        JSON.stringify({ ...userVotes, [data.id]: "downvote" })
+      );
+      setIsUserVoted("downvote");
+      setVotes(newVoteCount);
+    }
+  };
+
 
   return (
     data && (
       <>
         <AnswersContainer>
-          <div className="oneAnswer">
+          <div className="answer">
             {loggedInUser.id === data.creatorId && (
               <>
                 <AbsoluteButton
-                  style={{ right: "3px", top: "30px", color: "red" }}
+                  style={{ right: "-8px", top: "18px", color: "red" }}
                   onClick={() => {
                     if (window.confirm("Delete?")) {
                       setAnswers({
                         type: AnswersActionTypes.remove,
                         id: data.id,
                       });
-                      // navigate("/questions/allQuestions");
                     }
                   }}
                 >
                   Delete
                 </AbsoluteButton>
                 <AbsoluteButton
-                  style={{ right: "3px", top: "3px", color: "blue" }}
+                  style={{ right: "-8px", top: "-8px", color: "blue" }}
                   onClick={() => setEditClick(true)}
                 >
                   Edit
@@ -77,15 +268,36 @@ const AnswerCard = ({ data }) => {
               </>
             )}
 
-            <div>
-              <span>{data.numberOfLikes}</span>
-              <span>votes</span>
+            <div className="answerSummary">
+              {loggedInUser && (
+                <VoteButton
+                  onClick={handleDownvote}
+                  disabled={isUserVoted === "downvote"}
+                >
+                  Down
+                </VoteButton>
+              )}
+
+              <div>
+                <span>{data.numberOfLikes}</span>
+                <span>votes</span>
+              </div>
+              {loggedInUser && (
+                <VoteButton
+                  onClick={handleUpvote}
+                  disabled={isUserVoted === "upvote"}
+                >
+                  Up
+                </VoteButton>
+              )}
             </div>
             <div className="answerContent">
               <p>{data.answer}</p>
-              <span>Created: {data.createdDate}</span>
-              {data.isEdited && <span>Edited: {data.editedDate}</span>}
             </div>
+          </div>
+          <div className="answerDate">
+            <span>Created: {data.createdDate}</span>
+            {data.isEdited && <span>Edited: {data.editedDate}</span>}
           </div>
         </AnswersContainer>
         {editClick && <EditAnswer data={data} setEditClick={setEditClick} />}
