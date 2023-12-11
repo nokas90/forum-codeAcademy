@@ -46,7 +46,6 @@ const reducer = (state, action) => {
       });
   
     default:
-      console.log("error: action type not found", action.type);
       return state;
   }
 };
