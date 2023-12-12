@@ -4,7 +4,12 @@
 
 # then
 
-In the project directory, you can run:
+
+In the project directory, you need run:
+
+### `npm install`
+
+Installing needed packages.
 
 ### `npm run json`
 
