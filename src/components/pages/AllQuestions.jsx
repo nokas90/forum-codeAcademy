@@ -103,22 +103,12 @@ const AllQuestions = () => {
   const { questions, setQuestions, QuestionsActionTypes } = useContext(ForumQuestionsContext);
   const { answers } = useContext(ForumAnswersContext);
 
-  // State
+  // Filter State
   const [showAnswered, setShowAnswered] = useState(true);
   const [sortOrder, setSortOrder] = useState("desc");
   const [sortCriteria, setSortCriteria] = useState("date");
 
-  // Event Handlers
-  const toggleSortOrder = () => {
-    setSortOrder((prevOrder) => (prevOrder === "desc" ? "asc" : "desc"));
-  };
-
-  const toggleSortCriteria = () => {
-    setSortCriteria((prevCriteria) =>
-      prevCriteria === "date" ? "votes" : "date"
-    );
-  };
-
+  
   useEffect(() => {
     fetch(`http://localhost:8080/questions`)
       .then((res) => res.json())
@@ -129,6 +119,17 @@ const AllQuestions = () => {
         })
       );
   }, []);
+
+  const toggleSortOrder = () => {
+    setSortOrder((prevOrder) => (prevOrder === "desc" ? "asc" : "desc"));
+  };
+
+  const toggleSortCriteria = () => {
+    setSortCriteria((prevCriteria) =>
+      prevCriteria === "date" ? "votes" : "date"
+    );
+  };
+
 
   // Sorting Functions
   const compareDates = (a, b) => {
@@ -156,10 +157,6 @@ const AllQuestions = () => {
     sortCriteria === "date"
       ? filteredAndSortedQuestions.sort(compareDates)
       : filteredAndSortedQuestions.sort(compareVotes);
-
-  useEffect(() => {
-    // code
-  }, []);
 
   return (
     <>

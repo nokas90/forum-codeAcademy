@@ -64,20 +64,13 @@ const Login = () => {
     initialValues: formValues,
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      // console.log(values);
-
-      // console.log(users);
-      const loggedInUser = users.find(user => user.email === values.email && user.password === values.password);
-      // const loggedInUser = users.find(user => user.email === values.email && bcrypt.compareSync(values.password, user.password));
-
-      // console.log(loggedInUser);
+      const loggedInUser = users.find(user => user.email === values.email && bcrypt.compareSync(values.password, user.password));
 
       if(loggedInUser === undefined) {
         setFailedToLogin(true);
-        console.log('failed to login')
+        // console.log('failed to login')
       } else {
         setLoggedInUser(loggedInUser);
-
         // console.log('logged in')
         navigate('/questions/allQuestions');
       }

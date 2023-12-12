@@ -1,50 +1,88 @@
 {
   "questions": [
     {
-      "id": "8a6a1ad5-01a5-413b-b061-020fdfe4c214",
-      "creatorId": "usr1",
-      "createdDate": "2023-12-11T14:07:21.943Z",
-      "creatorName": "Alice",
-      "title": "asdasdasd",
-      "question": "asdasf34w56twesgf2342rfdsdf",
-      "numberOfLikes": 0,
-      "isEdited": true,
-      "editedDate": "12/11/2023, 4:08:54 PM"
+      "id": "396ea789-3e30-4276-bb37-7ad31afdf1f5",
+      "creatorId": "f84df29f-ef13-4fad-aee6-5063f91adbc9",
+      "createdDate": "2023-12-12T07:38:51.398Z",
+      "creatorName": "v4lode",
+      "title": "Primary Colors",
+      "question": "What are the three primary colors in the RGB color model?",
+      "numberOfLikes": 1,
+      "isEdited": false
     },
     {
-      "id": "b3f5c4e9-1d72-46a9-9d6f-8169741231cd",
-      "creatorId": "a3f68801-3408-4362-855b-76066283ff2e",
-      "createdDate": "2023-12-11T14:09:48.406Z",
-      "creatorName": "Julie",
-      "title": "asd3sdvst34",
-      "question": "sdgewvs543testfcfdg45345345asdasd",
+      "id": "3ed2f8d8-99f8-4674-8a04-8f3465f5babe",
+      "creatorId": "f84df29f-ef13-4fad-aee6-5063f91adbc9",
+      "createdDate": "2023-12-12T07:39:09.579Z",
+      "creatorName": "v4lode",
+      "title": "Color Mixing",
+      "question": "When you mix red and blue light, what color do you get?",
+      "numberOfLikes": 0,
+      "isEdited": false
+    },
+    {
+      "id": "be5c647d-2486-43f8-913b-959f36c2c6bb",
+      "creatorId": "f84df29f-ef13-4fad-aee6-5063f91adbc9",
+      "createdDate": "2023-12-12T07:39:22.296Z",
+      "creatorName": "v4lode",
+      "title": "Complementary Colors",
+      "question": "What is the complementary color of yellow?",
+      "numberOfLikes": 0,
+      "isEdited": false
+    },
+    {
+      "id": "8ffc90f2-8e94-43c6-abae-51719df7712e",
+      "creatorId": "f84df29f-ef13-4fad-aee6-5063f91adbc9",
+      "createdDate": "2023-12-12T07:39:34.242Z",
+      "creatorName": "v4lode",
+      "title": "Color Perception",
+      "question": "Why does an object appear red?",
+      "numberOfLikes": 0,
+      "isEdited": false
+    },
+    {
+      "id": "7b7d5410-2ad7-48d1-9810-2711b8aa098d",
+      "creatorId": "f84df29f-ef13-4fad-aee6-5063f91adbc9",
+      "createdDate": "2023-12-12T07:39:47.979Z",
+      "creatorName": "v4lode",
+      "title": "Color Temperature",
+      "question": "In terms of color temperature, what COLOR is associated with higher temperatures?",
       "numberOfLikes": 1,
       "isEdited": true,
-      "editedDate": "12/11/2023, 4:11:34 PM"
+      "editedDate": "12/12/2023, 9:43:30 AM"
     }
   ],
   "answers": [
     {
-      "id": "be9acaf1-b68c-46f7-b4a3-37d03d526efe",
-      "questionId": "8a6a1ad5-01a5-413b-b061-020fdfe4c214",
-      "creatorId": "usr1",
-      "creatorName": "Alice",
-      "answer": "asdasf32wtrw457esgst4asfasf",
-      "numberOfLikes": 0,
-      "isEdited": true,
-      "createdDate": "2023-12-11T14:07:52.831Z",
-      "editedDate": "12/11/2023, 4:08:41 PM"
-    },
-    {
-      "id": "fa9d33ba-a50c-4a51-8938-2dbb223a6e65",
-      "questionId": "b3f5c4e9-1d72-46a9-9d6f-8169741231cd",
+      "id": "260ecc6b-9640-4315-b795-5b645f7a182f",
+      "questionId": "7b7d5410-2ad7-48d1-9810-2711b8aa098d",
       "creatorId": "a3f68801-3408-4362-855b-76066283ff2e",
       "creatorName": "Julie",
-      "answer": "wet43ytgedgsswr3rwar345345",
+      "answer": "Blue\nRed\nGreen",
       "numberOfLikes": 1,
+      "isEdited": false,
+      "createdDate": "2023-12-12T07:40:30.579Z"
+    },
+    {
+      "id": "5b1bf222-676c-4acc-8c54-f8f49b38cd33",
+      "questionId": "8ffc90f2-8e94-43c6-abae-51719df7712e",
+      "creatorId": "a3f68801-3408-4362-855b-76066283ff2e",
+      "creatorName": "Julie",
+      "answer": "It reflects red light and absorbs other colors.\nIt emits red light.\nIt refracts red light.",
+      "numberOfLikes": 1,
+      "isEdited": false,
+      "createdDate": "2023-12-12T07:40:52.850Z"
+    },
+    {
+      "id": "ef83ee38-05ee-4463-895e-db819ac2ea4c",
+      "questionId": "396ea789-3e30-4276-bb37-7ad31afdf1f5",
+      "creatorId": "a3f68801-3408-4362-855b-76066283ff2e",
+      "creatorName": "Julie",
+      "answer": "1.) Red, Green, Blue.\n2.) Cyan, Magenta, Yellow.\n3.) Orange, Purple, Green.",
+      "numberOfLikes": 0,
       "isEdited": true,
-      "createdDate": "2023-12-11T14:09:59.607Z",
-      "editedDate": "12/11/2023, 4:10:02 PM"
+      "createdDate": "2023-12-12T07:41:17.014Z",
+      "editedDate": "12/12/2023, 9:42:27 AM"
     }
   ],
   "users": [
@@ -79,6 +117,14 @@
       "passwordNormal": "juliePassword1!",
       "password": "$2a$08$MZgMvWx9SVK2cb68p42e9usfk1miOyesq9ywShYj1L8LyqUi0KbUG",
       "profilePic": "https://cdn.pixabay.com/photo/2023/03/30/03/56/graffiti-art-7886746_640.jpg"
+    },
+    {
+      "id": "f84df29f-ef13-4fad-aee6-5063f91adbc9",
+      "userName": "v4lode",
+      "email": "v4lode@gmail.com",
+      "passwordNormal": "v4lodePassword1!",
+      "password": "$2a$08$mnXzdiwrACI9s4lqtr6EpeAcBGnBStUuJiAm1Zm5aSfZ7CUKSrxLW",
+      "profilePic": "https://cdn.pixabay.com/photo/2020/01/14/09/20/anonym-4764566_640.jpg"
     }
   ]
 }

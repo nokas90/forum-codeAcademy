@@ -54,7 +54,7 @@ const EditQuestion = () => {
     fetch(`http://localhost:8080/questions/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (!data.title) {
           // navigate('/');
         }
@@ -90,7 +90,7 @@ const EditQuestion = () => {
               isEdited: true,
               editedDate: new Date().toLocaleString(),
             };
-            console.log(finalValues);
+            // console.log(finalValues);
             setQuestions({
               type: QuestionsActionTypes.edit,
               id: id,

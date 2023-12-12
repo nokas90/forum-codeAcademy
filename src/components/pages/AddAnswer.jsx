@@ -8,7 +8,6 @@ import UsersContext from "../../contexts/UserContext";
 import ForumAnswersContext from "../../contexts/ForumAnswersContext";
 import FormikInput from "../UI/FormitInput";
 import Typewriter from "../UI/TypeWriter";
-import { FormatDate } from "../helperFunctions/DataManipulation";
 
 const StyledAddFormPage = styled.main`
     height: calc(100vh - 100px);
@@ -78,23 +77,21 @@ const AddAnswer = () => {
         isEdited: false,
         createdDate: new Date().toISOString(),
       };
-      console.log("Question ID before setAnswers:", id);
-      console.log(answerData);
+      // console.log("Question ID before setAnswers:", id);
+      // console.log(answerData);
       setAnswers(({
         type: AnswersActionTypes.add,
         data: answerData
       }));
-      console.log("State after update:", answers);
-
+      // console.log("State after update:", answers);
       navigate(`/questions/${id}`);
-      console.log("Question ID after navigate:", id);
+      // console.log("Question ID after navigate:", id);
     },
   });
 
   return (
     <StyledAddFormPage>
       <StyledHeader><Typewriter text={"Add Answer"} speed={50} /></StyledHeader>
-
       <form onSubmit={formik.handleSubmit}>
       <FormikInput
           type="textarea"

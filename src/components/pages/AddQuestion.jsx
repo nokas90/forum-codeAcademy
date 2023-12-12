@@ -8,7 +8,6 @@ import UsersContext from "../../contexts/UserContext";
 import ForumQuestionsContext from "../../contexts/ForumQuestionsContext";
 import FormikInput from "../UI/FormitInput";
 import Typewriter from "../UI/TypeWriter";
-import { FormatDate } from "../helperFunctions/DataManipulation";
 
 
 const StyledAddFormPage = styled.main`

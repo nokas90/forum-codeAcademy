@@ -89,8 +89,8 @@ const EditAnswer = ({ data, setEditClick }) => {
                 value={props.values.answer}
                 id="answer"
                 type="textarea"
-                rows={5}
-                columns={10}
+                rows={8}
+                columns={28}
                 onBlur={props.handleBlur}
                 formik={props}
               />

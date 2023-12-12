@@ -47,7 +47,9 @@ const StyledHeader = styled.header`
     color: #dfdfdf;
     > img {
       border-radius:50%;
-      height: 30px;
+      height: 40px;
+      width:40px;
+      object-fit: cover;
     }
   }
   @media (max-width: 768px) {

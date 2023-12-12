@@ -88,10 +88,9 @@ const Register = () => {
     initialValues: formValues,
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
-
+      // console.log(values);
       if (users.find((user) => user.userName === values.userName)) {
-        console.log('name err');
+        // console.log('name err');
         setFailedToRegister((prevState) => {
           return {
             ...prevState,
@@ -107,7 +106,7 @@ const Register = () => {
         });
       }
       if (users.find((user) => user.email === values.email)) {
-        console.log('email err');
+        // console.log('email err');
         setFailedToRegister((prevState) => {
           return {
             ...prevState,
