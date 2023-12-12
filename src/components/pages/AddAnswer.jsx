@@ -44,7 +44,7 @@ const StyledHeader = styled.h1`
 const AddAnswer = () => {
   const { id } = useParams();
 
-  const { answers, setAnswers, AnswersActionTypes } = useContext(
+  const { setAnswers, AnswersActionTypes } = useContext(
     ForumAnswersContext
   );
   const { loggedInUser } = useContext(UsersContext);

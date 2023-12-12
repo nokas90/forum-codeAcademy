@@ -1,6 +1,5 @@
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import UsersContext from "../../contexts/UserContext";
 import ForumAnswersContext from "../../contexts/ForumAnswersContext";
 import EditAnswer from "../pages/EditAnswer";
